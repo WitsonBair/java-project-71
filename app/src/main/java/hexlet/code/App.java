@@ -13,10 +13,20 @@ public class App {
   @Option(names = { "-V", "--version" }, versionHelp = true,
           description = "Print version information and exit")
   private boolean versionRequested;
+  @Parameters(paramLabel = "filepath1", description = "path to first file")
+  private static String filepath1;
+  @Parameters(paramLabel = "filepath2", description = "path to second file")
+  private static String filepath2;
 
   public static void main(String[] args) {
-    CommandLine cmd = new CommandLine(new App());
-    int gendiff = cmd.execute(args);
-    System.exit(gendiff);
+    CommandLine commandLine = new CommandLine(new App());
+    commandLine.parseArgs(args);
+    if (commandLine.isUsageHelpRequested()) {
+      commandLine.usage(System.out);
+      return;
+    } else if (commandLine.isVersionHelpRequested()) {
+      commandLine.printVersionHelp(System.out);
+      return;
+    }
   }
 }
