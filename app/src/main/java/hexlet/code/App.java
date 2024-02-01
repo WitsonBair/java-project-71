@@ -13,6 +13,8 @@ public class App {
   @Option(names = { "-V", "--version" }, versionHelp = true,
           description = "Print version information and exit")
   private boolean versionRequested;
+  @Option(names = { "-f", "--format"}, paramLabel = "format",
+          description = "output format [default: stylish]")
   @Parameters(paramLabel = "filepath1", description = "path to first file")
   private static String filepath1;
   @Parameters(paramLabel = "filepath2", description = "path to second file")
