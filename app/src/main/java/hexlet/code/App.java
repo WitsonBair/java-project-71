@@ -5,6 +5,8 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 
+import java.io.IOException;
+
 @Command(name = "gendiff", mixinStandardHelpOptions = true, version = "gendiff 0.2",
         description = "Compares two configuration files and shows a difference.")
 public class App implements Runnable {
@@ -23,7 +25,11 @@ public class App implements Runnable {
 
   @Override
   public void run() {
-    System.out.println(Differ.generate(filepath1, filepath2, format));
+      try {
+          System.out.println(Differ.generate(filepath1, filepath2, format));
+      } catch (IOException e) {
+          throw new RuntimeException(e);
+      }
   }
 
   public static void main(String[] args) {
