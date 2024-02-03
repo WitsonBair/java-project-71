@@ -9,9 +9,9 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class PlainFormatter implements Formatter {
-    private static final String templateForChanged = "Property '%s' was updated. From %s to %s";
-    private static final String templateForAdded = "Property '%s' was added with value: %s";
-    private static final String templateForReduced = "Property '%s' was removed";
+    private static final String TEMPLATE_FOR_CHANGED = "Property '%s' was updated. From %s to %s";
+    private static final String TEMPLATE_FOR_ADDED = "Property '%s' was added with value: %s";
+    private static final String TEMPLATE_FOR_REDUCED = "Property '%s' was removed";
 
     @Override
     public final String format(Map<String, List<Object>> tree) {
@@ -21,15 +21,15 @@ public class PlainFormatter implements Formatter {
                     String template = "";
                     switch (stepList.get(stepList.size() - 1).toString()) {
                         case ("CHANGED"):
-                            template = String.format(templateForChanged, entry.getKey(),
+                            template = String.format(TEMPLATE_FOR_CHANGED, entry.getKey(),
                                     stringify(stepList.get(0)), stringify(stepList.get(1)));
                             break;
                         case ("ADDED"):
-                            template = String.format(templateForAdded, entry.getKey(),
+                            template = String.format(TEMPLATE_FOR_ADDED, entry.getKey(),
                                     stringify(stepList.get(0)));
                             break;
                         case ("REDUCED"):
-                            template = String.format(templateForReduced, entry.getKey());
+                            template = String.format(TEMPLATE_FOR_REDUCED, entry.getKey());
                             break;
                         case ("STAYED"):
                             break;
