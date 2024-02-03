@@ -35,6 +35,10 @@ public class Differ {
         return formatter.format(tree);
     }
 
+    public static String generate(String filepath1, String filepath2) throws Exception {
+        return generate(filepath1, filepath2, "stylish");
+    }
+
     private static String getFileExtension(String filePath) {
         int index = filePath.lastIndexOf('.');
         return index > 0 ? filePath.substring(index + 1) : "";
