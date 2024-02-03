@@ -6,5 +6,5 @@ import java.util.List;
 import java.util.Map;
 
 public interface Formatter {
-    public String format(Map<String, List<Object>> tree) throws JsonProcessingException;
+    String format(Map<String, List<Object>> tree) throws JsonProcessingException;
 }

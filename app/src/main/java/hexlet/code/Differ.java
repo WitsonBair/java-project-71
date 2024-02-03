@@ -1,8 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.parsers.JsonParser;
-
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;

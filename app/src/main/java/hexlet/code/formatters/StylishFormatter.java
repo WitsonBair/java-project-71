@@ -45,5 +45,5 @@ public class StylishFormatter implements Formatter {
         stylishString.append("\n}");
 
         return stylishString.toString();
-    };
+    }
 }
