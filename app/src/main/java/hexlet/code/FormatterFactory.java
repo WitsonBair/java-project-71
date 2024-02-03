@@ -1,21 +1,16 @@
 package hexlet.code;
 
 import hexlet.code.formatters.JsonFormatter;
+import hexlet.code.formatters.PlainFormatter;
 import hexlet.code.formatters.StylishFormatter;
 
 public class FormatterFactory {
     public static Formatter createFormatter(String format) throws Exception {
-        switch (format) {
-            case "json":
-                return new JsonFormatter();
-            case "stylish":
-                return new StylishFormatter();
-            case "plain":
-                System.out.println("Plain!");
-                break;
-            default:
-                throw new Exception("Unknown format");
-        }
-        return null;
+        return switch (format) {
+            case "json" -> new JsonFormatter();
+            case "stylish" -> new StylishFormatter();
+            case "plain" -> new PlainFormatter();
+            default -> throw new Exception("Unknown format");
+        };
     };
 }
