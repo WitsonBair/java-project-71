@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 public class YamlParser implements Parser {
     @Override
-    public HashMap<String, Object> parse(String yamlData) throws JsonProcessingException {
+    public final HashMap<String, Object> parse(String yamlData) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         return mapper.readValue(yamlData, new TypeReference<HashMap<String, Object>>() { });
     }

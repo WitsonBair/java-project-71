@@ -9,12 +9,12 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class PlainFormatter implements Formatter {
-    private static String templateForChanged = "Property '%s' was updated. From %s to %s";
-    private static String templateForAdded = "Property '%s' was added with value: %s";
-    private static String templateForReduced = "Property '%s' was removed";
+    private static final String templateForChanged = "Property '%s' was updated. From %s to %s";
+    private static final String templateForAdded = "Property '%s' was added with value: %s";
+    private static final String templateForReduced = "Property '%s' was removed";
 
     @Override
-    public String format(Map<String, List<Object>> tree) {
+    public final String format(Map<String, List<Object>> tree) {
         return tree.entrySet().stream()
                 .map(entry -> {
                     List<Object> stepList = entry.getValue();

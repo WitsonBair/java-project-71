@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class JsonFormatter implements Formatter {
     @Override
-    public String format(Map<String, List<Object>> tree) throws JsonProcessingException {
+    public final String format(Map<String, List<Object>> tree) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(tree);
     };

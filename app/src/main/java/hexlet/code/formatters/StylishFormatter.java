@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class StylishFormatter implements Formatter {
     @Override
-    public String format(Map<String, List<Object>> tree) {
+    public final String format(Map<String, List<Object>> tree) {
         StringBuilder stylishString = new StringBuilder();
         stylishString.append("{");
 

@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 public class JsonParser implements Parser {
     @Override
-    public HashMap<String, Object> parse(String jsonData) throws JsonProcessingException {
+    public final HashMap<String, Object> parse(String jsonData) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         TypeReference<HashMap<String, Object>> ref = new TypeReference<HashMap<String, Object>>() { };
         return mapper.readValue(jsonData, ref);
